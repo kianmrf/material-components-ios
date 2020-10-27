@@ -276,6 +276,9 @@ const UIEdgeInsets MDCChipFieldDefaultContentEdgeInsets = {
   // necessary to restrict chip creation based on input text generated in the user interface.
   // Clients calling |addChip| directly programmatically are expected to handle such restrictions
   // themselves rather than using |chipField:shouldAddChip| to prevent chips from being added.
+    if (self.showChipsDeleteButton) {
+      [self addClearButtonToChip:chip];
+    }
   [_chips addObject:chip];
   [self addChipSubview:chip];
   if ([self.delegate respondsToSelector:@selector(chipField:didAddChip:)]) {
